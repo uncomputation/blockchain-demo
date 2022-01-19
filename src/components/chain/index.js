@@ -1,4 +1,4 @@
-import { hash as sha256, mine, NULL_HASH, proofOfWork, DEFAULT_DIFFICULTY } from "../../util";
+import { hash as sha256, mine, NULL_HASH, proofOfWork, DEFAULT_DIFFICULTY, DEFAULT_NONCE } from "../../util";
 import Block from "../block";
 
 const Chain = ({ state, dispatch}) => {
@@ -10,7 +10,7 @@ const Chain = ({ state, dispatch}) => {
     }
 
     async function add() {
-        const newBlocks = await doWork(state.blocks.length, [...state.blocks, { contents: "You can edit this freely" }]);
+        const newBlocks = await doWork(state.blocks.length, [...state.blocks, { contents: "You can edit this freely", nonce: DEFAULT_NONCE }]);
         dispatch({
             type: "replace",
             payload: {
