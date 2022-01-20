@@ -58,7 +58,7 @@ function App() {
   };
 
   return (
-    <div className="p-0 m-0 font-serif bg-gray-900 text-white">
+    <div className="p-0 m-0 font-sans bg-gray-900 text-white">
       <Header />
       <Control pow={state.useProofOfWork} togglePow={togglePow} />
       <Chain state={state} dispatch={dispatch} />
